@@ -3,10 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.14.36518.9
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "C# Hackathon #1", "C# Hackathon #1\C# Hackathon #1.csproj", "{E7636A06-BA26-42AE-85BE-0290611E677E}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProgressiveTaxrate", "progressive tax rate without delegate\ProgressiveTaxrate.csproj", "{80019C2D-E70C-4486-967A-78E82C0C7FDA}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GuessNumberGame", "GuessNumberGame\GuessNumberGame.csproj", "{F722A861-7CF6-4D83-ABB9-D6A4B124C483}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Replacecontent", "Replacecontent\Replacecontent.csproj", "{CE4B9F65-204B-44E9-B252-F254317F2CEB}"
@@ -15,20 +11,16 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CountStringNumber", "CountS
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TempConversion", "TempConversion\TempConversion.csproj", "{297FD315-AA5F-4EE8-9811-6C46B121A076}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Life", "Life\Life.csproj", "{9FAF600E-72F8-4029-898A-B32950AF8EDA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tax", "Tax\Tax.csproj", "{C8B886C9-4AEF-4592-8721-C0EFFF9B0265}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{E7636A06-BA26-42AE-85BE-0290611E677E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E7636A06-BA26-42AE-85BE-0290611E677E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E7636A06-BA26-42AE-85BE-0290611E677E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E7636A06-BA26-42AE-85BE-0290611E677E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{80019C2D-E70C-4486-967A-78E82C0C7FDA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{80019C2D-E70C-4486-967A-78E82C0C7FDA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{80019C2D-E70C-4486-967A-78E82C0C7FDA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{80019C2D-E70C-4486-967A-78E82C0C7FDA}.Release|Any CPU.Build.0 = Release|Any CPU
 		{F722A861-7CF6-4D83-ABB9-D6A4B124C483}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{F722A861-7CF6-4D83-ABB9-D6A4B124C483}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F722A861-7CF6-4D83-ABB9-D6A4B124C483}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -45,6 +37,14 @@ Global
 		{297FD315-AA5F-4EE8-9811-6C46B121A076}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{297FD315-AA5F-4EE8-9811-6C46B121A076}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{297FD315-AA5F-4EE8-9811-6C46B121A076}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9FAF600E-72F8-4029-898A-B32950AF8EDA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9FAF600E-72F8-4029-898A-B32950AF8EDA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9FAF600E-72F8-4029-898A-B32950AF8EDA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9FAF600E-72F8-4029-898A-B32950AF8EDA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C8B886C9-4AEF-4592-8721-C0EFFF9B0265}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C8B886C9-4AEF-4592-8721-C0EFFF9B0265}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C8B886C9-4AEF-4592-8721-C0EFFF9B0265}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C8B886C9-4AEF-4592-8721-C0EFFF9B0265}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

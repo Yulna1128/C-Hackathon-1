@@ -1,4 +1,4 @@
-namespace Guess_the_Number_Game
+namespace Life
 {
     internal static class Program
     {
