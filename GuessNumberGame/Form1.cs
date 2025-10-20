@@ -37,7 +37,7 @@ namespace GuessNumberGame
         {
             if (!gameStarted)
             {
-                MessageBox.Show("請先按『開始遊戲』！");
+                MessageBox.Show("請先按開始遊戲~~~^^");
                 return;
             }
 
@@ -45,7 +45,7 @@ namespace GuessNumberGame
 
             if (guess.Length != 4)
             {
-                MessageBox.Show("請輸入四個數字！");
+                MessageBox.Show("請輸入四個數字~~~不可以重複!");
                 return;
             }
 
@@ -62,7 +62,7 @@ namespace GuessNumberGame
 
             if (result == "4A0B")
             {
-                MessageBox.Show("恭喜你答對了！");
+                MessageBox.Show("恭喜你答對了！也沒獎勵");
                 gameStarted = false;
             }
 
