@@ -1,6 +1,6 @@
 ﻿using System;
 
-class ProgressiveTaxrate
+class Tax
 {
     static void Main()
     {

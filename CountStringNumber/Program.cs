@@ -1,31 +1,44 @@
 ﻿using System;
-using System.Collections.Generic;
 
 class Program
 {
     static void Main()
     {
         Console.WriteLine("請輸入一句英文句子：");
-        string input = Console.ReadLine().ToLower(); // 轉小寫，避免大小寫差異
-
-        // 以空白分割成單字陣列
+        string input = Console.ReadLine().ToLower();
         string[] words = input.Split(' ', StringSplitOptions.RemoveEmptyEntries);
 
-        // 用 Dictionary 來統計每個單字的出現次數
-        Dictionary<string, int> wordCount = new Dictionary<string, int>();
+        string[] uniqueWords = new string[words.Length];
+        int[] counts = new int[words.Length];
+        int uniqueCount = 0;
 
-        foreach (string word in words)
+        for (int i = 0; i < words.Length; i++)
         {
-            if (wordCount.ContainsKey(word))
-                wordCount[word]++;
-            else
-                wordCount[word] = 1;
+            string currentWord = words[i];
+            bool found = false;
+
+            for (int j = 0; j < uniqueCount; j++)
+            {
+                if (uniqueWords[j] == currentWord)
+                {
+                    counts[j]++;
+                    found = true;
+                    break;
+                }
+            }
+
+            if (!found)
+            {
+                uniqueWords[uniqueCount] = currentWord;
+                counts[uniqueCount] = 1;
+                uniqueCount++;
+            }
         }
 
-        // 輸出結果
-        foreach (var item in wordCount)
+        Console.WriteLine("\n統計結果：");
+        for (int i = 0; i < uniqueCount; i++)
         {
-            Console.WriteLine($"{item.Key} : {item.Value}");
+            Console.WriteLine($"{uniqueWords[i]} : {counts[i]}");
         }
     }
 }
