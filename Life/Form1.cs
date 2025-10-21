@@ -16,7 +16,7 @@ namespace Life
             // 檔案路徑
             string path = Path.Combine(Application.StartupPath, "生命靈數.txt");
 
-            // 讀取檔案內容 (UTF8避免亂碼)
+            // 讀取檔案內容 
             if (File.Exists(path))
             {
                 lines = File.ReadAllLines(path, Encoding.UTF8);
