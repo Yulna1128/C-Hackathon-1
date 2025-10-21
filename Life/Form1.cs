@@ -6,112 +6,119 @@ namespace Life
 {
     public partial class Form1 : Form
     {
-        string[] lines; // 存文字檔每一行
+        string[] lines; // 存放文字檔每一行文字
 
         public Form1()
         {
             InitializeComponent();
 
-            // 讀取文字檔
+            // 讀取文字檔內容
             string path = "生命靈數.txt";
+
             if (File.Exists(path))
             {
                 lines = File.ReadAllLines(path);
             }
             else
             {
-                MessageBox.Show("找不到生命靈數.txt，請放在同資料夾！");
+                MessageBox.Show("找不到生命靈數.txt，請放在同資料夾!笨蛋!~~");
                 lines = new string[0];
             }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            DateTime birth = dateTimePicker1.Value;
+            DateTime birth = dateTimePicker1.Value; // 取得生日日期
 
-            int life = GetLifeNum(birth);
-            string star = GetStar(birth);
-            string message = SearchMessage(star, life);
+            int lifeNumber = GetLifeNumber(birth); // 計算生命靈數
+            string starSign = GetStarSign(birth);  // 取得星座
+            string message = FindMessage(starSign, lifeNumber); // 找到對應的文字內容
 
-            label3.Text = "你的星座是 " + star + "\n你的生命靈數是 " + life + "\n\n" + message;
+            // 顯示結果
+            label3.Text = "你的星座是：" + starSign +
+                          "\n你的生命靈數是：" + lifeNumber +
+                          "\n\n" + message;
         }
 
-        private int GetLifeNum(DateTime birth)
+        // 計算生命靈數（把生日數字加總，直到剩下一位數）
+        private int GetLifeNumber(DateTime birth)
         {
-            string s = birth.ToString("yyyyMMdd");
+            string birthday = birth.ToString("yyyyMMdd");
             int total = 0;
 
-            for (int i = 0; i < s.Length; i++)
+            // 把每個字元轉成數字相加
+            for (int i = 0; i < birthday.Length; i++)
             {
-                total += s[i] - '0';
+                total += Convert.ToInt32(birthday[i].ToString());
             }
 
+            // 若超過 9，繼續把數字拆開相加
             while (total >= 10)
             {
-                int temp = 0;
+                int sum = 0;
                 while (total > 0)
                 {
-                    temp += total % 10;
+                    sum += total % 10;
                     total = total / 10;
                 }
-                total = temp;
+                total = sum;
             }
 
             return total;
         }
 
-        private string GetStar(DateTime birth)
+        // 判斷星座
+        private string GetStarSign(DateTime birth)
         {
             int m = birth.Month;
             int d = birth.Day;
 
             if ((m == 3 && d >= 21) || (m == 4 && d <= 19)) return "牡羊座";
-            if ((m == 4 && d >= 20) || (m == 5 && d <= 20)) return "金牛座";
-            if ((m == 5 && d >= 21) || (m == 6 && d <= 20)) return "雙子座";
-            if ((m == 6 && d >= 21) || (m == 7 && d <= 22)) return "巨蟹座";
-            if ((m == 7 && d >= 23) || (m == 8 && d <= 22)) return "獅子座";
-            if ((m == 8 && d >= 23) || (m == 9 && d <= 22)) return "處女座";
-            if ((m == 9 && d >= 23) || (m == 10 && d <= 22)) return "天秤座";
-            if ((m == 10 && d >= 23) || (m == 11 && d <= 21)) return "天蠍座";
-            if ((m == 11 && d >= 22) || (m == 12 && d <= 21)) return "射手座";
-            if ((m == 12 && d >= 22) || (m == 1 && d <= 19)) return "摩羯座";
-            if ((m == 1 && d >= 20) || (m == 2 && d <= 18)) return "水瓶座";
-            return "雙魚座"; //如果上面都不是就是雙魚啦!
+            else if ((m == 4 && d >= 20) || (m == 5 && d <= 20)) return "金牛座";
+            else if ((m == 5 && d >= 21) || (m == 6 && d <= 20)) return "雙子座";
+            else if ((m == 6 && d >= 21) || (m == 7 && d <= 22)) return "巨蟹座";
+            else if ((m == 7 && d >= 23) || (m == 8 && d <= 22)) return "獅子座";
+            else if ((m == 8 && d >= 23) || (m == 9 && d <= 22)) return "處女座";
+            else if ((m == 9 && d >= 23) || (m == 10 && d <= 22)) return "天秤座";
+            else if ((m == 10 && d >= 23) || (m == 11 && d <= 21)) return "天蠍座";
+            else if ((m == 11 && d >= 22) || (m == 12 && d <= 21)) return "射手座";
+            else if ((m == 12 && d >= 22) || (m == 1 && d <= 19)) return "摩羯座";
+            else if ((m == 1 && d >= 20) || (m == 2 && d <= 18)) return "水瓶座";
+            else return "雙魚座"; //其他星座寫完就剩下雙魚
         }
 
-        private string SearchMessage(string star, int life)
+        // 從文字檔中找出對應的星座和生命靈數說明
+        private string FindMessage(string starSign, int lifeNumber)
         {
-            bool findStar = false;
+            bool inThisStar = false;
 
-            for (int i = 0; i < lines.Length; i++)
+            foreach (string line in lines)
             {
-                string line = lines[i];
-
-                // 找到星座那一段（例如含有 獅子座）
-                if (line.Contains(star))
+                // 找到星座段落開頭
+                if (line.Contains(starSign))
                 {
-                    findStar = true;
+                    inThisStar = true;
                     continue;
                 }
 
-                // 找到「生命靈數X：」
-                if (findStar && line.Contains("生命靈數" + life + "："))
+                // 在該星座區段中找到對應的生命靈數
+                if (inThisStar && line.Contains("生命靈數" + lifeNumber + "："))
                 {
-                    int p = line.IndexOf("：");
-                    if (p >= 0)
+                    int colonPos = line.IndexOf("：");
+                    if (colonPos >= 0)
                     {
-                        return line.Substring(p + 1).Trim();
+                        return line.Substring(colonPos + 1).Trim();
                     }
                 }
 
-                // 若又看到下一個【，代表進到下一個星座
-                if (findStar && line.Contains("【"))
+                // 若遇到下一個星座區段就停止
+                if (inThisStar && line.Contains("【"))
                 {
                     break;
                 }
             }
 
-            return "找不到對應資料";
+            return "找不到對應資料~你是怪人。";
         }
     }
 }

@@ -41,7 +41,7 @@
             dateTimePicker1.Name = "dateTimePicker1";
             dateTimePicker1.Size = new Size(300, 30);
             dateTimePicker1.TabIndex = 0;
-            dateTimePicker1.ValueChanged += dateTimePicker1_ValueChanged;
+           // dateTimePicker1.ValueChanged += dateTimePicker1_ValueChanged;
             // 
             // button1
             // 
@@ -72,14 +72,14 @@
             label2.Text = "關於你";
             // 
             // label3
-            // 
-            label3.AutoSize = true;
-            label3.Location = new Point(410, 136);
-            label3.Name = "label3";
-            label3.Size = new Size(46, 23);
-            label3.TabIndex = 4;
-            label3.Text = "內容";
-            label3.Click += label3_Click;
+            //// 
+            //label3.AutoSize = true;
+            //label3.Location = new Point(410, 136);
+            //label3.Name = "label3";
+            //label3.Size = new Size(46, 23);
+            //label3.TabIndex = 4;
+            //label3.Text = "內容";
+            //label3.Click += label3_Click;
             // 
             // Form1
             // 
